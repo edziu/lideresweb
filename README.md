@@ -2,9 +2,6 @@
 
 ## Proyecto Blog - Líderes Web
 <br>
-<ul>
-<br>
-<br>
 ** Visión general:
 <br>
 Inspirar a crear más equipos de desarrollo dentro de Comunidad, indicando los principales problemas de un proyecto y dando un ejemplo concreto.
