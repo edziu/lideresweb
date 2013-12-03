@@ -1,0 +1,11 @@
+{
+    "name"          : "Lideresweb",
+    "version"       : "0.0.1",
+    "autor"         : "Lideres de la comunidad mejorandola",
+    "dependencies"  : {
+        "express"   : "*",
+        "jade"      : "*",
+        "passport"  : "*",
+        "passport-github" : "*"
+    }
+}
