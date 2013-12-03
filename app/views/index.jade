@@ -1,0 +1,12 @@
+extends layout
+
+block main
+    h1 Hola Blog!
+    #content
+        if(!user)
+            | Login con 
+            a#github(href="/auth/github") Github
+        else
+            | Bienvenido 
+            span #{user.displayName} !
+            a#logout(href="/logout") Cerrar Sesión
