@@ -1,5 +1,12 @@
 ![Mejorandola](http://miguelnieva.com/img/mejorandola-grande.png)
 
+Para iniciar debes abrir una terminal, ir al path del proyecto y ejecutar:
+  
+  * npm install
+  * npm install -g bower (si ya lo tienes instalado no es necesario)
+  * bower install
+  * node server.js
+
 ## Proyecto Blog - Líderes Web
 <br>
 ** Visión general:
