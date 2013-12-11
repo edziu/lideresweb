@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = function(req, res){
+module.exports = function(req, res) {
     res.render('index', {
-        title: "Blog",
+        title: 'Blog',
         user: req.user
     });
-}
+};
