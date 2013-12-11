@@ -3,9 +3,10 @@
 Para iniciar debes abrir una terminal, ir al path del proyecto y ejecutar:
   
   * npm install
-  * npm install -g bower (si ya lo tienes instalado no es necesario)
+  * npm install -g bower grunt-cli (si ya lo tienes instalado no es necesario)
   * bower install
-  * node server.js
+  * grunt
+  * npm start
 
 ## Proyecto Blog - Líderes Web
 <br>
