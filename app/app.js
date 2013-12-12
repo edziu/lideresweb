@@ -28,8 +28,8 @@ app.configure(function (){
 });
 
 passport.use(new GitHubStrategy({
-    clientID: '536bcd2340468565acdf',
-    clientSecret: '303f0a37794ab7871d79abe64ae67fc9def1f5d0',
+    clientID: '',
+    clientSecret: '',
     callbackURL: '/auth/github/callback'
 }, function(accessToken, refreshToken, profile, done) {
     return done(null, profile);

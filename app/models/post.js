@@ -1,9 +1,9 @@
 var mongoose    = require ('mongoose'),
     Schema      = mongoose.Schema,
-    postSchema,
-    post;
+    articleSchema,
+    article;
 
-postSchema = new Schema({
+articleSchema = new Schema({
     title: {
         type: String, 
         require: true
@@ -36,4 +36,4 @@ postSchema = new Schema({
     }
 });
 
-module.exports = post = mongoose.model('post', postSchema);
+module.exports = article = mongoose.model('article', articleSchema);
