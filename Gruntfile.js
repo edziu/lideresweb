@@ -23,6 +23,11 @@ module.exports = function(grunt) {
             options: {
                 bail: true,
                 files: ['test/unit/*_test.js']
+            },
+            spec: {
+                options: {
+                    reporter: 'spec'
+                }
             }
         },
 
@@ -58,7 +63,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('test', ['jshint', 'mochacli']);
+    grunt.registerTask('test', ['jshint', 'mochacli:spec']);
 
     grunt.registerTask('default', ['test', 'compass:app']);
 

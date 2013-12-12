@@ -5,11 +5,11 @@ var mongoose    = require ('mongoose'),
 
 articleSchema = new Schema({
     title: {
-        type: String, 
+        type: String,
         require: true
     },
     author: {
-        type: String, 
+        type: String,
         require: true
     },
     body: {
@@ -20,7 +20,7 @@ articleSchema = new Schema({
         body: {
             type: String,
             require: true
-        }, 
+        },
         date: {
             type: Date,
             require: true
