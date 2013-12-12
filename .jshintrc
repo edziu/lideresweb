@@ -23,6 +23,7 @@
   "expr": true,
   "globals": {
     "describe": true,
-    "it": true
+    "it": true,
+    "beforeEach": true
   }
 }
