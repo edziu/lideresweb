@@ -21,5 +21,9 @@
   "smarttabs": true,
   "jquery": true,
   "expr": true,
-  "globals": {}
+  "globals": {
+    "describe": true,
+    "it": true,
+    "beforeEach": true
+  }
 }
