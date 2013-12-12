@@ -6,4 +6,3 @@ node_modules
 public/.tmp
 public/app/vendor
 public/dist
-app.js
