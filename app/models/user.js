@@ -14,11 +14,9 @@ userSchema = new Schema({
     },
     email: {
         type: String,
-        require: true
     },
     profileUrl: {
         type: String,
-        require: true
     },
     avatarUrl: {
         type: String,

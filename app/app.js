@@ -27,6 +27,8 @@ app.configure(function (){
     app.use(express.static(path.join(__dirname, '..', 'public')));
 });
 
+
+
 passport.use(new GitHubStrategy({
     clientID: '',
     clientSecret: '',
