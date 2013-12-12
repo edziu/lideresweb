@@ -25,10 +25,10 @@ exports.githubAuth = function ( app, passport ) {
     }));
 
     passport.serializeUser(function(user, done) {
-        done(null, user);
+        done(null, user._id);
     });
 
-    passport.deserializeUser(function(obj, done) {
-        done(null, obj);
+    passport.deserializeUser(function( id , done) {
+        UserModel.findOne({ '_id': id }, done);
     });
 };
