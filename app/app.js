@@ -1,13 +1,13 @@
 'use strict';
 
-var path = require('path'),
-    express = require('express'),
-    passport = require('passport'),
+var path           = require('path'),
+    express        = require('express'),
+    passport       = require('passport'),
     GitHubStrategy = require('passport-github').Strategy;
 
 var app = module.exports = express();
 
-app.configure(function() {
+app.configure(function (){
     app.set('port', 3000);
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'jade');
@@ -20,6 +20,7 @@ app.configure(function() {
     app.use(express.session({
         secret: 'SECRET'
     }));
+    app.use(express.session({secret: 'SECRET'}));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(app.router);

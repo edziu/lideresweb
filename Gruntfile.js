@@ -19,6 +19,13 @@ module.exports = function(grunt) {
             ]
         },
 
+        mochacli: {
+            options: {
+                bail: true,
+                files: ['test/unit/*_test.js']
+            }
+        },
+
         compass: {
             options: {
                 sassDir: '<%= root %>app/styles',
@@ -49,10 +56,9 @@ module.exports = function(grunt) {
                 }
             }
         }
-
     });
 
-    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('test', ['jshint', 'mochacli']);
 
     grunt.registerTask('default', ['test', 'compass:app']);
 
