@@ -1,31 +1,15 @@
-var mongoose    = require('mongoose'),
-    Schema      = mongoose.Schema,
-    userSchema,
-    user;
+var findOrCreate = require('mongoose-findorcreate');
+var mongoose     = require('mongoose');
+var Schema       = mongoose.Schema;
 
-userSchema = new Schema({
-    displayName: {
-        type: String,
-        require: true
-    },
-    userName: {
-        type: String,
-        require: true
-    },
-    email: {
-        type: String,
-    },
-    profileUrl: {
-        type: String,
-    },
-    avatarUrl: {
-        type: String,
-        require : true
-    },
-    createAt: {
-        type: Date,
-        default: Date.now
-    }
+var userSchema = new Schema({
+    username : { type: String, unique: true },
+    email    : { type: String, },
+    avatarUrl: { type: String, },
+    createAt : { type: Date, default: Date.now }
 });
 
-module.exports = user = mongoose.model('user', userSchema);
+/* load plugin */
+userSchema.plugin( findOrCreate );
+
+module.exports = mongoose.model('user', userSchema);

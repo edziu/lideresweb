@@ -9,7 +9,6 @@ describe('@user model', function () {
     
     beforeEach(function () {
         this.user = new UserModel({
-            displayName : 'Eduardo Diaz',
             userName    : 'EduardoDiaz',
             email       : 'eduar.diaz37@gmail.com'
         });
@@ -22,8 +21,7 @@ describe('@user model', function () {
         });
 
         it('user should attributes', function () {
-            expect(this.user.get('displayName')).to.be.equal('Eduardo Diaz');
-            expect(this.user.get('userName')).to.be.equal('EduardoDiaz');
+            expect(this.user.get('username')).to.be.equal('EduardoDiaz');
             expect(this.user.get('email')).to.be.equal('eduar.diaz37@gmail.com');
         });
 
