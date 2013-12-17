@@ -6,7 +6,7 @@
     "**/.*",
     "node_modules",
     "public/vendor",
-    "test",
+    "test"
   ],
   "dependencies": {
     "jquery": "~2.0.3",

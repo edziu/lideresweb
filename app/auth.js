@@ -2,9 +2,8 @@
 var GitHubStrategy = require('passport-github').Strategy;
 var UserModel = require('./models').UserModel;
 
-function findOrCreate ( username, profile, cb ) {
-    console.log( profile );
-    UserModel.findOrCreate({ username: username }, profile, cb);
+function findOrCreate ( profile, cb ) {
+    UserModel.findOrCreate({ username: profile.username }, profile, cb);
 }
 
 function parserProfile ( profile ) {
@@ -21,9 +20,8 @@ exports.githubAuth = function ( app, passport ) {
         clientSecret : app.get('clientSecret'),
         callbackURL  : '/auth/github/callback'
     }, function(accessToken, refreshToken, profile, done) {
-        console.log( profile );
         profile = parserProfile( profile );
-        findOrCreate(profile.userName, profile, done);
+        findOrCreate(profile, done);
     }));
 
     passport.serializeUser(function(user, done) {
