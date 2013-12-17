@@ -1,12 +1,11 @@
 extends layout
 
 block main
-    h1 Hola Blog!
-    #content
-        if(!user)
-            | Login con 
-            a#github(href="/auth/github") Github
-        else
-            | Bienvenido 
-            span #{user.displayName} !
-            a#logout(href="/logout") Cerrar Sesión
+	header(id="header")
+		a(href="", class="brand_area")
+			h1 Líderes Web           
+		a(href="", class="icons")
+			img(src="images/menu.png")
+	
+	section(id="sidebar")
+	footer(id="footer")
