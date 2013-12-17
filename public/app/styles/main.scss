@@ -26,9 +26,15 @@ a {
 		text-align: center;
 		width: 40%;
 	}
-	.icons {
+	.menu {
 		float: left;
 		margin: -44px 0px 0 15px;
+	}
+	.icons {
+		display: inline-block;
+		margin: 10px 10%;
+		vertical-align: middle;
+		width: 13%;
 	}
 }
 #sidebar {
@@ -44,8 +50,8 @@ a {
 	z-index: 1001;
 }
 
-@media screen and(max-width: 320px){
-	body {
-		background: #333;
+@media screen and(min-width: 1024px){
+	.brand_area {
+		text-align: left;
 	}
 }
