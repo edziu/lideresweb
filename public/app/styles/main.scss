@@ -10,6 +10,34 @@ a {
 	color: $second;
 	text-decoration: none;
 }
+.action_area {
+	height: 74px;
+	margin: 0 auto;
+	width: 90%;
+	.register, .login {
+		background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+		display: inline-block;
+		font-size: 80%;
+		margin-top: 14px;
+		text-align: center;
+		vertical-align: top;
+		width: 50%;
+	}
+}
+.container {
+	border: 1px solid #eee;
+	left: 5%;
+	margin: 33% auto 0 auto;
+	position: absolute;
+	width: 90%;
+	figure {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+
 
 #header {
 	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
@@ -35,6 +63,38 @@ a {
 		margin: 10px 10%;
 		vertical-align: middle;
 		width: 13%;
+	}
+	.search {
+		margin-top: 11px;
+		input[type="search"] {
+			background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+			border-radius: 2px;
+			display: block;
+			height: 44px;
+			margin: 0 auto;
+			text-indent: 48px;
+			width: 88%;
+			border: 0;
+		}
+		::-webkit-input-placeholder {
+   			color: $second;
+   			font-weight: bold;
+		}
+
+		:-moz-placeholder { 
+		   color: $second;
+		   font-weight: bold;
+		}
+
+		::-moz-placeholder {  
+		   color: $second;
+		   font-weight: bold;
+		}
+
+		:-ms-input-placeholder {  
+		   color: $second;
+		   font-weight: bold;
+		}
 	}
 }
 #sidebar {
