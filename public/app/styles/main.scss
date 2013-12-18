@@ -24,6 +24,12 @@ a {
 		vertical-align: top;
 		width: 50%;
 	}
+	.register:hover, .login:hover{
+		background: linear-gradient(to bottom, #333 0%, #444 100%);
+		h2 {
+			color: #eee;
+		}
+	}
 }
 .container {
 	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
