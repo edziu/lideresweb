@@ -67,12 +67,14 @@ a {
 	.search {
 		margin-top: 11px;
 		input[type="search"] {
-			background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+			background-image:  url('/images/search.png'), linear-gradient(to bottom, #fff 0%, #eee 100%);
+			background-repeat: no-repeat, repeat;
+  			background-position: center left 14px, right;
 			border-radius: 2px;
 			display: block;
 			height: 44px;
 			margin: 0 auto;
-			text-indent: 48px;
+			text-indent: 54px;
 			width: 88%;
 			border: 0;
 		}
