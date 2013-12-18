@@ -13,6 +13,7 @@ a {
 .action_area {
 	height: 74px;
 	margin: 0 auto;
+	padding: 0 4px;
 	width: 90%;
 	.register, .login {
 		background: linear-gradient(to bottom, #fff 0%, #eee 100%);
@@ -25,15 +26,38 @@ a {
 	}
 }
 .container {
+	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
 	border: 1px solid #eee;
 	left: 5%;
-	margin: 33% auto 0 auto;
+	margin: 193px auto;
+	padding: 0 4px;
 	position: absolute;
 	width: 90%;
 	figure {
 		img {
 			width: 100%;
 		}
+	}
+	h3 {
+		font-size: 150%;
+	}
+	span {
+		font-size: 75%;
+	}
+	.author{
+		color: #333;
+		font-weight: bold;
+		text-indent: 5px;
+	}
+	.article_info {
+		color: #333;
+		text-indent: 6px;
+	}
+	.read_more {
+		float: right;
+		font-size: 125%;
+		margin-bottom: 5px;
+		margin-right: 14px;
 	}
 }
 
