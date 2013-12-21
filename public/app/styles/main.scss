@@ -1,4 +1,149 @@
+@import "_var";
+
 body {
-    background: #333;
-    color: white;
+    background: $primary;
+    color: $second;
+    font-size: 16px;
+}
+
+a {
+	color: $second;
+	text-decoration: none;
+}
+.action_area {
+	height: 74px;
+	margin: 0 auto;
+	padding: 0 4px;
+	width: 90%;
+	.register, .login {
+		background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+		display: inline-block;
+		font-size: 80%;
+		margin-top: 14px;
+		text-align: center;
+		vertical-align: top;
+		width: 50%;
+	}
+	.register:hover, .login:hover{
+		background: linear-gradient(to bottom, #333 0%, #444 100%);
+		h2 {
+			color: #eee;
+		}
+	}
+}
+.container {
+	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+	border: 1px solid #eee;
+	left: 5%;
+	margin: 193px auto;
+	padding: 0 4px;
+	position: absolute;
+	width: 90%;
+	figure {
+		img {
+			width: 100%;
+		}
+	}
+	h3 {
+		font-size: 150%;
+	}
+	span {
+		font-size: 75%;
+	}
+	.author{
+		color: #333;
+		font-weight: bold;
+		text-indent: 5px;
+	}
+	.article_info {
+		color: #333;
+		text-indent: 6px;
+	}
+	.read_more {
+		float: right;
+		font-size: 125%;
+		margin-bottom: 5px;
+		margin-right: 14px;
+	}
+}
+
+
+
+#header {
+	background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+	height: 48px;
+	position: absolute;
+	width: 100%;
+	z-index: 1002;
+	.brand_area {
+		font-size: 70%;
+		line-height: 20px;
+		margin: 5% auto;
+		text-align: center;
+		width: 40%;
+	}
+	.menu {
+		float: left;
+		margin: -44px 0px 0 15px;
+	}
+	.icons {
+		display: inline-block;
+		margin: 10px 10%;
+		vertical-align: middle;
+		width: 13%;
+	}
+	.search {
+		margin-top: 11px;
+		input[type="search"] {
+			background-image:  url('/images/search.png'), linear-gradient(to bottom, #fff 0%, #eee 100%);
+			background-repeat: no-repeat, repeat;
+  			background-position: center left 14px, right;
+			border-radius: 2px;
+			display: block;
+			height: 44px;
+			margin: 0 auto;
+			text-indent: 54px;
+			width: 88%;
+			border: 0;
+		}
+		::-webkit-input-placeholder {
+   			color: $second;
+   			font-weight: bold;
+		}
+
+		:-moz-placeholder { 
+		   color: $second;
+		   font-weight: bold;
+		}
+
+		::-moz-placeholder {  
+		   color: $second;
+		   font-weight: bold;
+		}
+
+		:-ms-input-placeholder {  
+		   color: $second;
+		   font-weight: bold;
+		}
+	}
+}
+#sidebar {
+	background: #f6f6f6;
+	bottom: 0;
+	box-shadow: 0 0 10px -2px rgba(0, 0, 0, .5);
+	left: -320px;
+	overflow: auto;
+	position: absolute;
+	top: 45px;
+	transition: all .3s;
+	width: 320px;
+	z-index: 1001;
+}
+
+@media screen and(min-width: 1024px){
+	.brand_area {
+		text-align: left;
+	}
 }

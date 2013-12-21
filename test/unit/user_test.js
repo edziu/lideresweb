@@ -9,7 +9,7 @@ describe('@user model', function () {
     
     beforeEach(function () {
         this.user = new UserModel({
-            userName    : 'EduardoDiaz',
+            username    : 'EduardoDiaz',
             email       : 'eduar.diaz37@gmail.com'
         });
     });
