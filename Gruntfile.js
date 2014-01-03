@@ -1,22 +1,33 @@
 'use strict';
 
-module.exports = function(grunt) {
+var publicPath = 'public/',
+    jsFiles = ['Gruntfile.js', 'app/**/*.js', publicPath + 'app/scripts/**/*.js'];
 
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+module.exports = function(grunt) {
+    require('load-grunt-tasks')(grunt, {
+        pattern: 'grunt-*'
+    });
 
     grunt.initConfig({
 
-        root: 'public/',
+        publicPath: publicPath,
+
+        watch: {
+            js: {
+                files: jsFiles,
+                tasks: ['jshint', 'mochacli']
+            },
+            compass: {
+                files: '<%= publicPath %>app/styles/**/*.scss',
+                tasks: ['compass:app']
+            }
+        },
 
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
             },
-            files: [
-                'Gruntfile.js',
-                'app/{,*/}*{,*/}*.js',
-                '<%= root %>app/scripts/{,*/}*{,*/}*.js'
-            ]
+            files: jsFiles
         },
 
         mochacli: {
@@ -33,17 +44,17 @@ module.exports = function(grunt) {
 
         compass: {
             options: {
-                sassDir: '<%= root %>app/styles',
-                cssDir: '<%= root %>.tmp/styles',
-                imagesDir: '<%= root %>app/images',
-                generatedImagesDir: '<%= root %>.tmp/images/sprites',
-                javascriptsDir: '<%= root %>app/scripts',
-                fontsDir: '<%= root %>app/fonts',
-                importPath: '<%= root %>app/vendor',
+                sassDir: '<%= publicPath %>app/styles',
+                cssDir: '<%= publicPath %>.tmp/styles',
+                imagesDir: '<%= publicPath %>app/images',
+                generatedImagesDir: '<%= publicPath %>.tmp/images/sprites',
+                javascriptsDir: '<%= publicPath %>app/scripts',
+                fontsDir: '<%= publicPath %>app/fonts',
+                importPath: '<%= publicPath %>app/vendor',
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= root %>dist/images/sprites',
+                    generatedImagesDir: '<%= publicPath %>dist/images/sprites',
                     httpImagesPath: '/dist/images',
                     httpGeneratedImagesPath: '/dist/images/sprites',
                     httpJavascriptsPath: '/dist/scripts',
@@ -63,8 +74,8 @@ module.exports = function(grunt) {
         }
     });
 
+    grunt.registerTask('dev', ['watch']);
     grunt.registerTask('test', ['jshint', 'mochacli:spec']);
-
     grunt.registerTask('default', ['test', 'compass:app']);
 
 };

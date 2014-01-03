@@ -2,27 +2,20 @@ extends layout
 
 block main
 	header(id="header")
-		a(href="", class="brand_area")
-			h1 Líderes Web           
-		a(href="", class="menu")
-			img(src="images/menu.png")
-		section(class="action_area")
-			section(class="register")
-				a(href="")
-					h2 Registro
-			section(class="login")
-				a(href="")
-					h2 Login
-
-		section(class="search")
+		div(id="title")
+			a(href="", class="menu icon-menu")
+			a(href="", class="brand_area")
+				h2 Líderes Web           
+			a(href="", class="login icon-enter")
+		div(class="search")
+			a(href="", class="icon-search")
 			input(type="search", placeholder="Buscar artículos") 
-
 
 	section(id="sidebar")
 
 	section(id="container", class="container")
-		article(id="article", class="article") 
-			figure(id="idArticles")
+		article(class="article") 
+			figure(class="")
 				img(src="images/image1.jpg")
 				figcaption 
 					h3 UX Designer
@@ -33,20 +26,5 @@ block main
 						a(href="", class="author") Loulogio  
 					p(class="article_info")
 						| La UX ('User Experience' en inglés para 'Experiencia de usuario') es la ciencia de comprender el contexto para mejorar la efectividad... 
-				a(href="", class="read_more") Leer más...
-
-		article(id="article", class="article") 
-			figure(id="idArticles")
-				img(src="images/image1.jpg")
-				figcaption 
-					h3 UX Designer
-					span 
-						| Publicado en Diciembre 17, 2013
-					p
-						| Escrito por 
-						a(href="", class="author") Loulogio  
-					p(class="article_info")
-						| La UX ('User Experience' en inglés para 'Experiencia de usuario') es la ciencia de comprender el contexto para mejorar la efectividad... 
-				a(href="", class="read_more") Leer más...
 
 	footer(id="footer")
