@@ -140,7 +140,46 @@ a {
 }
 
 .article {
+	figure {
+		position: relative;
+		ul{
+			list-style: none;
+			padding: 0;
+			li{
+				display: inline-block;
+				margin-left: 5px;
+				background: rgb(95, 0, 182);
+				-webkit-border-radius: 10px;
+				border-radius: 10px;
+				padding: 3px 10px;
+				text-transform: uppercase;
+				&:nth-child(3n+1){
+					background: rgb(49, 136, 0);
+				}
+				&:nth-child(3n+2){
+					background: rgb(202, 53, 6);
+				}
+			}
+		}
+		img {
+			opacity: .7;
+		}
+		figcaption {
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 255, 255, 0)), color-stop(0.28, rgba(119, 119, 119, 0.35)), color-stop(1, rgba(0, 0, 0, 0.56)) );
+			bottom: 0;
+			color: white;
+			left: 0;
+			right: 0;
+			padding: 5%;
+			position: absolute;
 
+			h3{
+				font-size: 3em;
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
 }
 
 #sidebar {
