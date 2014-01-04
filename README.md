@@ -6,7 +6,8 @@ Para iniciar debes abrir una terminal, ir al path del proyecto y ejecutar:
   * npm install -g bower grunt-cli (si ya lo tienes instalado no es necesario)
   * bower install
   * grunt
-  * npm start
+  * grunt watch (corre la tarea de jshint, compass and mocha automaticamente cuando realizas un cambio)
+  * npm start or node server.js
 
 ## Proyecto Blog - Líderes Web
 <br>
