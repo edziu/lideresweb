@@ -1,7 +1,8 @@
 'use strict';
 
 var publicPath = 'public/',
-    jsFiles = ['Gruntfile.js', 'app/**/*.js', publicPath + 'app/scripts/**/*.js'];
+    jsFiles = ['Gruntfile.js', 'app/**/*.js', publicPath + 'app/scripts/**/*.js'],
+    PORT = process.env.PORT || 9999;
 
 module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt, {
@@ -14,7 +15,7 @@ module.exports = function(grunt) {
 
         watch: {
             jade: {
-                files: ['app/views/**'],
+                files: ['app/views/**/*.jade'],
                 options: {
                     livereload: true,
                 },
@@ -28,27 +29,27 @@ module.exports = function(grunt) {
             },
             compass: {
                 files: '<%= publicPath %>app/styles/**/*.scss',
-                tasks: ['compass:app']
-            }
+                tasks: ['compass:app'],
+            },
         },
 
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
             },
-            files: jsFiles
+            files: jsFiles,
         },
 
         mochacli: {
             options: {
                 bail: true,
-                files: ['test/unit/*_test.js']
+                files: ['test/unit/*_test.js'],
             },
             spec: {
                 options: {
-                    reporter: 'spec'
-                }
-            }
+                    reporter: 'spec',
+                },
+            },
         },
 
         compass: {
@@ -69,17 +70,17 @@ module.exports = function(grunt) {
                     httpJavascriptsPath: '/dist/scripts',
                     httpFontsPath: '/dist/fonts',
                     environment: 'production',
-                    relativeAssets: false
-                }
+                    relativeAssets: false,
+                },
             },
             app: {
                 options: {
                     debugInfo: true,
                     assetCacheBuster: false,
                     environment: 'development',
-                    relativeAssets: true
-                }
-            }
+                    relativeAssets: true,
+                },
+            },
         },
 
         nodemon: {
@@ -93,18 +94,18 @@ module.exports = function(grunt) {
                     debug: true,
                     delayTime: 1,
                     env: {
-                        PORT: 3000
+                        PORT: PORT,
                     },
-                    cwd: __dirname
-                }
-            }
+                    cwd: __dirname,
+                },
+            },
         },
 
         concurrent: {
             tasks: ['nodemon', 'watch'],
             options: {
-                logConcurrentOutput: true
-            }
+                logConcurrentOutput: true,
+            },
         },
 
         bower: {
@@ -114,10 +115,10 @@ module.exports = function(grunt) {
                     layout: 'byComponent',
                     install: true,
                     verbose: true,
-                    cleanBowerDir: true
-                }
-            }
-        }
+                    cleanBowerDir: true,
+                },
+            },
+        },
     });
 
     grunt.registerTask('dev', ['concurrent', 'watch']);

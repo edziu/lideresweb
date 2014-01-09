@@ -17,6 +17,6 @@ function error( err ) {
 
 server.listen(app.get('port'), function(err){
     if( err ) { error( err ); }
-    console.log('Server running at http:127.0.0.1:'+app.get('port') + '/');
+    console.log('Server running at http:127.0.0.1:' + app.get('port') + '/');
 });
 
