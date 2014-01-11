@@ -1,7 +1,9 @@
 'use strict';
 
 var passport = require('passport'),
-    indexController = require('../controller/index');
+    indexController = require('../controller/index'),
+    userPostsController = require('../controller/userPosts'),
+    recentsController = require('../controller/recents');
 
 var logoutController = function(req, res) {
     req.logout();
@@ -9,7 +11,11 @@ var logoutController = function(req, res) {
 };
 
 module.exports = function(app) {
-    app.get('/', indexController);
+    app.get('/', indexController); 
+    app.get('/posts/:user', userPostsController);
+    app.get('/recents', recentsController);
+    
+    app.post('/post', createPostController);
 
     app.get('/logout', logoutController);
     app.get('/auth/github', passport.authenticate('github'));

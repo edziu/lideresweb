@@ -20,8 +20,7 @@ app.configure(function (){
     app.use(express.json());
     app.use(express.urlencoded());
     app.use(express.cookieParser());
-    app.use(express.session({ secret: 'SECRET' }));
-    app.use(express.session({ secret: 'SECRET' }));
+    app.use(express.session({ secret: 'SECRET' }));    
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(app.router);
