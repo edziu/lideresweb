@@ -1,70 +1,129 @@
 'use strict';
 
-module.exports = function(grunt) {
+var publicPath = 'public/',
+    jsFiles = ['Gruntfile.js', 'app/**/*.js', publicPath + 'app/scripts/**/*.js'],
+    PORT = process.env.PORT || 9999;
 
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+module.exports = function(grunt) {
+    require('load-grunt-tasks')(grunt, {
+        pattern: 'grunt-*'
+    });
 
     grunt.initConfig({
 
-        root: 'public/',
+        publicPath: publicPath,
+
+        watch: {
+            jade: {
+                files: ['app/views/**/*.jade'],
+                options: {
+                    livereload: true,
+                },
+            },
+            js: {
+                files: jsFiles,
+                tasks: ['jshint', 'mochacli'],
+                options: {
+                    livereload: true,
+                },
+            },
+            compass: {
+                files: '<%= publicPath %>app/styles/**/*.scss',
+                tasks: ['compass:app'],
+            },
+        },
 
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
             },
-            files: [
-                'Gruntfile.js',
-                'app/{,*/}*{,*/}*.js',
-                '<%= root %>app/scripts/{,*/}*{,*/}*.js'
-            ]
+            files: jsFiles,
         },
 
         mochacli: {
             options: {
                 bail: true,
-                files: ['test/unit/*_test.js']
+                files: ['test/unit/*_test.js'],
             },
             spec: {
                 options: {
-                    reporter: 'spec'
-                }
-            }
+                    reporter: 'spec',
+                },
+            },
         },
 
         compass: {
             options: {
-                sassDir: '<%= root %>app/styles',
-                cssDir: '<%= root %>.tmp/styles',
-                imagesDir: '<%= root %>app/images',
-                generatedImagesDir: '<%= root %>.tmp/images/sprites',
-                javascriptsDir: '<%= root %>app/scripts',
-                fontsDir: '<%= root %>app/fonts',
-                importPath: '<%= root %>app/vendor',
+                sassDir: '<%= publicPath %>app/styles',
+                cssDir: '<%= publicPath %>.tmp/styles',
+                imagesDir: '<%= publicPath %>app/images',
+                generatedImagesDir: '<%= publicPath %>.tmp/images/sprites',
+                javascriptsDir: '<%= publicPath %>app/scripts',
+                fontsDir: '<%= publicPath %>app/fonts',
+                importPath: '<%= publicPath %>app/vendor',
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= root %>dist/images/sprites',
+                    generatedImagesDir: '<%= publicPath %>dist/images/sprites',
                     httpImagesPath: '/dist/images',
                     httpGeneratedImagesPath: '/dist/images/sprites',
                     httpJavascriptsPath: '/dist/scripts',
                     httpFontsPath: '/dist/fonts',
                     environment: 'production',
-                    relativeAssets: false
-                }
+                    relativeAssets: false,
+                },
             },
             app: {
                 options: {
                     debugInfo: true,
                     assetCacheBuster: false,
                     environment: 'development',
-                    relativeAssets: true
-                }
-            }
-        }
+                    relativeAssets: true,
+                },
+            },
+        },
+
+        nodemon: {
+            dev: {
+                options: {
+                    file: 'server.js',
+                    args: [],
+                    ignoredFiles: ['README.md', 'node_modules', '.DS_Store'],
+                    watchedExtensions: ['js'],
+                    watchedFolders: ['app'],
+                    debug: true,
+                    delayTime: 1,
+                    env: {
+                        PORT: PORT,
+                    },
+                    cwd: __dirname,
+                },
+            },
+        },
+
+        concurrent: {
+            tasks: ['nodemon', 'watch'],
+            options: {
+                logConcurrentOutput: true,
+            },
+        },
+
+        bower: {
+            install: {
+                options: {
+                    targetDir: './public/app/vendor',
+                    layout: 'byComponent',
+                    install: true,
+                    verbose: true,
+                    cleanBowerDir: true,
+                },
+            },
+        },
     });
 
+    grunt.registerTask('dev', ['concurrent', 'watch']);
     grunt.registerTask('test', ['jshint', 'mochacli:spec']);
-
     grunt.registerTask('default', ['test', 'compass:app']);
+    grunt.registerTask('install', ['bower']);
 
 };
