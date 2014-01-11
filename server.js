@@ -17,11 +17,5 @@ function error( err ) {
 
 server.listen(app.get('port'), function(err){
     if( err ) { error( err ); }
-<<<<<<< HEAD
-    console.log('Server running at http:127.0.0.1:'+app.get('port') + '/');
-});
-=======
     console.log('Server running at http:127.0.0.1:' + app.get('port') + '/');
 });
-
->>>>>>> fd4edf9a61763e0ddc5f12a3e79581136e4d4623
