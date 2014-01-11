@@ -11,11 +11,11 @@ var logoutController = function(req, res) {
 };
 
 module.exports = function(app) {
-    app.get('/', indexController); 
+    app.get('/', indexController);
     app.get('/posts/:user', userPostsController);
     app.get('/recents', recentsController);
     
-    app.post('/post', createPostController);
+    //app.post('/post', createPostController);
 
     app.get('/logout', logoutController);
     app.get('/auth/github', passport.authenticate('github'));
